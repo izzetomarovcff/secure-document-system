@@ -42,6 +42,11 @@ import Sendadmin from './pages/admin/Sendadmin';
 import Viewsendedadmin from './pages/admin/Viewsendedadmin';
 import Recivedsadmin from './pages/admin/Recivedsadmin';
 import Viewrecivedadmin from './pages/admin/Viewrecivedadmin';
+import Sendedssubadmin from './pages/subadmin/Sendedssubadmin';
+import Sendsubadmin from './pages/subadmin/Sendsubadmin';
+import Viewsendedsubadmin from './pages/subadmin/Viewsendedsubadmin';
+import Recivedssubadmin from './pages/subadmin/Recivedssubadmin';
+import Viewrecivedsubadmin from './pages/subadmin/Viewrecivedsubadmin';
 
 function App() {
   const [permissions, setPermissions] = useState(null)
@@ -105,6 +110,11 @@ function App() {
         {permissions && permissions.has("view_users")?(<Route path="/subadmin/users" element={<Userssubadmin />} />):(null)}
         {permissions && permissions.has("add_user")?(<Route path="/subadmin/users/create" element={<Createusersubadmin />} />):(null)}
         {permissions && permissions.has("edit_user")?(<Route path="/subadmin/users/edit/*" element={<Editusersubadmin />} />):(null)}
+        {permissions&&permissions.has("view_sendeds")?(<Route path='/subadmin/sendeds' element={<Sendedssubadmin/>} />):(null)}
+        {permissions&&permissions.has("can_send_document")?(<Route path="/subadmin/sendeds/send" element={<Sendsubadmin />} />):(null)}
+        {permissions&&permissions.has("view_sendeds")?(<Route path='/subadmin/sendeds/view/*' element={<Viewsendedsubadmin/>} />):(null)}
+        {permissions&&permissions.has("view_reciveds")?(<Route path="/subadmin/reciveds" element={<Recivedssubadmin />} />):(null)}
+        {permissions&&permissions.has("view_reciveds")?(<Route path='/subadmin/reciveds/view/*' element={<Viewrecivedsubadmin/>} />):(null)}
       </Route>
 
 

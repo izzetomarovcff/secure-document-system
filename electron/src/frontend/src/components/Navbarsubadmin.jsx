@@ -34,7 +34,8 @@ function Navbarsubadmin() {
     <div className='navbarr'>
         <Link className={window.location.pathname == "/subadmin" ? ("link active") : ("link")} to={"/subadmin"}>Ana Səhifə</Link>
         {permissions && permissions.has("view_users")?(<Link className={window.location.pathname.includes("users") ? ("link active") : ("link")} to={"/subadmin/users"}>İstifadəçilər</Link>):(null)}
-        
+        {permissions && permissions.has("view_sendeds")?(<Link className={window.location.pathname.includes("sendeds") ? ("link active") : ("link")} to={"/subadmin/sendeds"}>Göndərilənlər</Link>):(null)}
+        {permissions && permissions.has("view_reciveds")?(<Link className={window.location.pathname.includes("reciveds") ? ("link active") : ("link")} to={"/subadmin/reciveds"}>Qəbul Edilənlər</Link>):(null)}
         <div onClick={handlelogout} className='link cursor-pointer'>Çıxış Et</div>
     </div>
   )
