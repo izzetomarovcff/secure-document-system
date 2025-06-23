@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Navbartop from '../../components/Navbartop'
-import Navbar from '../../components/Navbar'
+import Navbartopadmin from '../../components/Navbartopadmin'
+import Navbaradmin from '../../components/Navbaradmin'
 import { Link } from 'react-router-dom'
-function Viewrecived() {
+function Viewrecivedadmin() {
     const [formData, setFormData] = useState(null)
     const [decrypted, setDecrypted] = useState(null)
     const [hashStatus, setHashStatus] = useState(false)
@@ -166,13 +166,13 @@ function Viewrecived() {
     }, [])
     return (
         <div className='editadministration'>
-            <Navbartop />
+            <Navbartopadmin />
             <div className='group'>
-                <Navbar />
+                <Navbaradmin />
                 <div className="containerr">
                     <div className="head-group">
                         <div className="head-text">Qəbul Edilənlər - Bax</div>
-                        <Link to={"/superadmin/reciveds"} className="lnk-btn btn btn-danger">Geri</Link>
+                        <Link to={"/admin/reciveds"} className="lnk-btn btn btn-danger">Geri</Link>
                     </div>
                     {formData ? (
                         <div className='container-2'>
@@ -252,4 +252,4 @@ function Viewrecived() {
     )
 }
 
-export default Viewrecived
+export default Viewrecivedadmin

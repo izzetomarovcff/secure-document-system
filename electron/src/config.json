@@ -1,5 +1,5 @@
 {
-    "server_ip": "192.168.1.73",
+    "server_ip": "192.168.1.54",
     "host": "localhost",
     "user": "root",
     "base": "secure_file_sharing_2",

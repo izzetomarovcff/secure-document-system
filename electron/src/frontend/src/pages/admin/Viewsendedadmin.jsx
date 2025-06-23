@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Navbartop from '../../components/Navbartop'
-import Navbar from '../../components/Navbar'
+import Navbartopadmin from '../../components/Navbartopadmin'
+import Navbaradmin from '../../components/Navbaradmin'
 import { Link } from 'react-router-dom'
-function Viewsended() {
+
+function Viewsendedadmin() {
     const [formData, setFormData] = useState(null)
     
     useEffect(() => {
@@ -28,13 +29,13 @@ function Viewsended() {
         }, [])
     return (
         <div className='editadministration'>
-            <Navbartop />
+            <Navbartopadmin />
             <div className='group'>
-                <Navbar />
+                <Navbaradmin />
                 <div className="containerr">
                     <div className="head-group">
                         <div className="head-text">Göndərilən - Bax</div>
-                        <Link to={"/superadmin/sendeds"} className="lnk-btn btn btn-danger">Geri</Link>
+                        <Link to={"/admin/sendeds"} className="lnk-btn btn btn-danger">Geri</Link>
                     </div>
                     {formData ? (
                         <div className='container-2'>
@@ -116,4 +117,4 @@ function Viewsended() {
     )
 }
 
-export default Viewsended
+export default Viewsendedadmin

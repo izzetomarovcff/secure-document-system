@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/Navbar'
-import Navbartop from '../../components/Navbartop'
+import Navbaradmin from '../../components/Navbaradmin'
+import Navbartopadmin from '../../components/Navbartopadmin'
 import { Link } from 'react-router-dom';
 
-function Sendeds() {
+function Sendedsadmin() {
   const [permissions, setPermissions] = useState(null)
   const token = localStorage.getItem('token');
   const { role_id, id } = JSON.parse(decodeURIComponent(escape(atob(token.split('.')[1]))));
@@ -47,13 +47,13 @@ function Sendeds() {
   }, [])
   return (
     <div className='administrations'>
-      <Navbartop />
+      <Navbartopadmin />
       <div className='group'>
-        <Navbar />
+        <Navbaradmin />
         <div className="containerr">
           <div className="head-group">
             <div className="head-text">Göndərilənlər - Siyahı</div>
-            {permissions && permissions.has("can_send_document") ? (<Link to={"/superadmin/sendeds/send"} className="lnk-btn btn btn-secondary">Yeni Sənəd Göndər</Link>) : (<button disabled className="lnk-btn btn btn-secondary">Yeni Sənəd Göndər</button>)}
+            {permissions && permissions.has("can_send_document") ? (<Link to={"/admin/sendeds/send"} className="lnk-btn btn btn-secondary">Yeni Sənəd Göndər</Link>) : (<button disabled className="lnk-btn btn btn-secondary">Yeni Sənəd Göndər</button>)}
           </div>
           <div className="container-2">
             <table>
@@ -83,7 +83,7 @@ function Sendeds() {
                         <td>
                           {/* {permissions && permissions.has("delete_sended")?(<button  className='btn btn-sm btn-danger me-3'>Sil</button>):(<button disabled className='btn btn-sm btn-danger me-3'>Sil</button>)} */}
 
-                          {permissions && permissions.has("view_sendeds") ? (<Link to={`/superadmin/sendeds/view/${element.id}`} className='btn btn-sm btn-primary'>Bax</Link>) : (<button className='btn btn-sm btn-primary' disabled>Bax</button>)}
+                          {permissions && permissions.has("view_sendeds") ? (<Link to={`/admin/sendeds/view/${element.id}`} className='btn btn-sm btn-primary'>Bax</Link>) : (<button className='btn btn-sm btn-primary' disabled>Bax</button>)}
 
                         </td>
                       </tr>
@@ -101,4 +101,4 @@ function Sendeds() {
   )
 }
 
-export default Sendeds
+export default Sendedsadmin

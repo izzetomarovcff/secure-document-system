@@ -37,6 +37,11 @@ import Send from './pages/superadmin/Send';
 import Viewsended from './pages/superadmin/Viewsended';
 import Reciveds from './pages/superadmin/Reciveds';
 import Viewrecived from './pages/superadmin/Viewrecived';
+import Sendedsadmin from './pages/admin/Sendedsadmin';
+import Sendadmin from './pages/admin/Sendadmin';
+import Viewsendedadmin from './pages/admin/Viewsendedadmin';
+import Recivedsadmin from './pages/admin/Recivedsadmin';
+import Viewrecivedadmin from './pages/admin/Viewrecivedadmin';
 
 function App() {
   const [permissions, setPermissions] = useState(null)
@@ -102,17 +107,20 @@ function App() {
         {permissions && permissions.has("edit_user")?(<Route path="/subadmin/users/edit/*" element={<Editusersubadmin />} />):(null)}
       </Route>
 
+
       <Route element={<PrivateRoute allowedRoles={['admin']} />}>
         <Route path="/admin" element={<Adminhome />} />
         {permissions && permissions.has("view_departments")?(<Route path="/admin/departments" element={<Departmentsadmin />} />):(null)}
         {permissions && permissions.has("view_users")?(<Route path="/admin/users" element={<Usersadmin />} />):(null)}
-        
+        {permissions&&permissions.has("view_sendeds")?(<Route path='/admin/sendeds' element={<Sendedsadmin/>} />):(null)}
+        {permissions&&permissions.has("view_sendeds")?(<Route path='/admin/sendeds/view/*' element={<Viewsendedadmin/>} />):(null)}
         {permissions && permissions.has("add_department")?(<Route path="/admin/departments/create" element={<Createdepartmentadmin />} />):(null)}
         {permissions && permissions.has("add_user")?(<Route path="/admin/users/create" element={<Createuseradmin />} />):(null)}
-        
+        {permissions&&permissions.has("can_send_document")?(<Route path="/admin/sendeds/send" element={<Sendadmin />} />):(null)}
+        {permissions&&permissions.has("view_reciveds")?(<Route path="/admin/reciveds" element={<Recivedsadmin />} />):(null)}
         {permissions && permissions.has("edit_department")?(<Route path="/admin/departments/edit/*" element={<Editdepartmentadmin />} />):(null)}
         {permissions && permissions.has("edit_user")?(<Route path="/admin/users/edit/*" element={<Edituseradmin />} />):(null)}
-        
+        {permissions&&permissions.has("view_reciveds")?(<Route path='/admin/reciveds/view/*' element={<Viewrecivedadmin/>} />):(null)}
 
       </Route>
 

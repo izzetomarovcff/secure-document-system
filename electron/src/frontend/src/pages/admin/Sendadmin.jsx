@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/Navbar'
-import Navbartop from '../../components/Navbartop'
+import Navbaradmin from '../../components/Navbaradmin'
+import Navbartopadmin from '../../components/Navbartopadmin'
 import { Link } from 'react-router-dom'
-function Send() {
+function Sendadmin() {
     const token = localStorage.getItem('token');
     const { role_id,id } = JSON.parse(decodeURIComponent(escape(atob(token.split('.')[1]))));
     const [srcResults, setSrcResults] = useState(null)
@@ -145,7 +145,7 @@ function Send() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(last_data)
             });
-            window.location.pathname="/superadmin/sendeds"
+            window.location.pathname="/admin/sendeds"
             
         } catch (error) {
             console.log(error)
@@ -153,13 +153,13 @@ function Send() {
     }
     return (
         <div className='createdepartment'>
-            <Navbartop />
+            <Navbartopadmin />
             <div className='group'>
-                <Navbar />
+                <Navbaradmin />
                 <div className="containerr">
                     <div className="head-group">
                         <div className="head-text">Göndərilənlər - Göndər</div>
-                        <Link to={"/superadmin/sendeds"} className="lnk-btn btn btn-danger">Ləğv Et</Link>
+                        <Link to={"/admin/sendeds"} className="lnk-btn btn btn-danger">Ləğv Et</Link>
                     </div>
                     <div className='container-2'>
                         <form onSubmit={handlesubmit} className='form-control form mb-3'>
@@ -252,4 +252,4 @@ function Send() {
     )
 }
 
-export default Send
+export default Sendadmin
