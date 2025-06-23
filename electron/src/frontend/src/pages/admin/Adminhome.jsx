@@ -8,6 +8,10 @@ function Adminhome() {
       <Navbartopadmin/>
       <div className='group'>
           <Navbaradmin/>
+          <div className="containerr-home">
+            Kriptoqrafiyadan istifadə edərək təhlükəsiz sənəd mübadilə sistemi
+              
+          </div>
       </div>
     </div>
   )

@@ -7,6 +7,10 @@ function Userhome() {
       <Navbartopuser/>
       <div className='group'>
           <Navbaruser/>
+          <div className="containerr-home">
+            Kriptoqrafiyadan istifadə edərək təhlükəsiz sənəd mübadilə sistemi
+              
+          </div>
       </div>
     </div>
   )
