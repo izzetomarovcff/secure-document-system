@@ -809,6 +809,7 @@ app.post('/getsendedbyid', (req, res) => {
     res.json(results);
   });
 });
+
 app.post('/getrecivedbyid', (req, res) => {
   const { id } = req.body;
   if (!id) {
@@ -828,7 +829,7 @@ app.post('/getrecivedsbyid', (req, res) => {
   if (!id) {
     return res.status(400).json({ error: 'id təyin edilməyib!' });
   }
-  const query = 'SELECT 	f.*,r.username FROM flow f JOIN users s ON s.id = f.from_id JOIN users r ON r.id = f.to_id WHERE f.to_id=?';
+  const query = 'SELECT 	f.*,s.username FROM flow f JOIN users s ON s.id = f.from_id JOIN users r ON r.id = f.to_id WHERE f.to_id=?';
   db.query(query, [id], (err, results) => {
     if (err) return res.status(500).json({ error: 'Databaza Sorğu Erroru' });
     if (results.length === 0) {
